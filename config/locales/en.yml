@@ -20,4 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  mailers:
+    subjects:
+      new: 'invitation to TrelloBeta3'
+      exists: 'invitation to bord'
+  stories:
+    type:
+      base: 'Base'
+      bug: 'Bug'
+      improvment: 'Improvment'
+  users:
+
+
+

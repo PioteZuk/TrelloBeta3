@@ -1,0 +1,41 @@
+.upper = @story.title
+= form_for [:control_panel, @board, @story.becomes(Story)] do |f|
+  = f.label :type, 'Type'
+  br
+  = f.select :type, Story::TYPES.map {|type| [I18n.t("stories.type.#{type.demodulize.downcase}"), type] }
+
+  br
+  = f.label :title, "Title"
+  br
+  = f.text_field :title
+  br
+  = f.label :description, "Description"
+  br
+  = f.text_area :description
+
+  br
+  = f.label :executor_id, 'Executor'
+  br
+  = f.select :executor_id, @board.members.map {|p| [ p.user.email, p.user_id]}
+  br
+   = f.submit 'Confirm'
+  br
+  = link_to_if(@story.type.nil?, 'back', control_panel_board_story_path(@board, @story), method: :delete, class: "button") do
+    = link_to 'Back', control_panel_board_path(@board), class: "button"
+  / TODO: dodać parametr przy usuwaniu i if na notice
+  br
+  br
+.upper Comments
+= form_tag control_panel_story_comments_path(@story), method: :post do
+  = text_area_tag "comment[content]"
+  br
+  = submit_tag
+br
+- @story.comments.each do |comment|
+  div
+    = comment.content
+    = link_to edit_control_panel_story_comment_path(@story, comment.id), class: "board_button" do
+              i class="icon-edit"
+    = link_to control_panel_story_comment_path(@story, comment.id), method: :delete do
+              i class="icon-trash-empty"
+    br

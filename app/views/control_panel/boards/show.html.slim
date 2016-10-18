@@ -1,0 +1,39 @@
+.upper
+	= @board.title
+div class="stories"
+		- @board.stories.group_by(&:type).values.flatten.each do |story|
+			div class = "custom-box board"
+				= story.id
+				br
+				= story.title
+				br
+				= story.executor&.email
+				br
+				= story.type
+				br
+					= link_to edit_control_panel_board_story_path(@board, story), class: "board_button" do
+						i class="icon-edit"
+					= link_to control_panel_board_story_path(@board, story), method: :delete, data: {confirm: 'are you sure?'}, class: "board_button" do
+						i class="icon-trash-empty"
+		br = link_to control_panel_board_stories_path(@board), method: :post, class: "board_button" do
+			i class="icon-doc-new"
+
+div class="members"
+		Board Members:
+		div class = "members_block acepted"
+			- @board.members.each do |member|
+				br = member.user.email
+		div class = "members_block invited"
+			- @board.invitations.invitated.each do |e|
+				br = e.email
+		div class = "members_block rejected"
+			- @board.invitations.rejected.each do |e|
+				br = e.email
+		h3 Invitate new person to your board
+		= form_tag control_panel_user_invitations_path(@board), method: :post do
+			= hidden_field_tag 'board_id', params[:id]
+			= text_field_tag 'invitation[email]'
+			= submit_tag 'invite'
+		br
+
+

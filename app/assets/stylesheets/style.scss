@@ -1,0 +1,159 @@
+.custom-box{
+	background-color: #fff;
+	margin: 10px;
+	width: 200px;
+	height: 124px;
+	text-align: center;
+	&.board{
+		background-color: #AD33FF;
+		text-align: center;
+		display: inline-block;
+	}
+	&.sidebar_tile{
+		background-color: #3366ff;
+		width: 130px;
+		height: 80px;
+	}
+}
+label{
+	color: #fff;
+}
+body
+{
+	background-color: #314247;
+	font-family: 'Ubuntu', sans-serif;
+}
+.container {
+	width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #314247;
+
+	.header{
+		color: #3366ff;
+		padding: 20px;
+		text-align: left;
+		font-size: 34px;
+		letter-spacing: 3px;
+		font-style: italic;
+	}
+	.sidebar {
+		float: left;
+		width: 150px;
+		min-height: 600px;
+		padding: 20px;
+		.sidebar_button{
+			text-decoration: none;
+			color: white;
+		}
+	}
+	.content {
+		float: left;
+		width: 970px;
+		min-height: 600px;
+		padding: 20px;
+
+		.boards{
+		float: left;
+		width: 700px;
+		min-height: 600px;
+		}
+			.board_button{
+				text-decoration: none;
+				color: white;
+			}
+	}
+	.boards_as_member{
+		float: left;
+		width: 150px;
+		min-height: 600px;
+	}
+	.stories{
+		float: left;
+		width: 700px;
+		min-height: 600px;
+		padding: 20px;
+		}
+		.board_button{
+			text-decoration: none;
+			color: white;
+		}
+	}
+	.members{
+		float: left;
+		width: 150px;
+		min-height: 600px;
+		.members_block{
+			margin: 10px;
+			width: 180px;
+			min-height: 124px;
+			text-align: center;
+			display: inline-block;
+			&.acepted{
+				background-color: #33FF66;
+			}
+			&.invited{
+				background-color: #FFCC33;
+			}
+			&.rejected{
+				background-color: #FF4733;
+			}
+		}
+	}
+	.footer {
+		clear: both;
+		height: 10px;
+	}
+
+.upper{
+	color: white;
+	font-size: 20px;
+	padding: 10px;
+}
+.button
+{
+	display: inline-block;
+	font-size:14px;
+	background: #c0c0c0;
+	color: black;
+	text-align: center;
+	border-radius: 10px;
+	padding: 6px;
+	text-decoration: none;
+	border: 1px solid #808080;
+	transition-duration: 0.4s;
+}
+.button:hover
+{
+	background-color: #f0f0f0;
+}
+.button_delete
+{
+	display: inline-block;
+	font-size:14px;
+	background: #ff0000;
+	color: white;
+	text-align: center;
+	border-radius: 10px;
+	padding: 6px;
+	text-decoration: none;
+	border: 1px solid #808080;
+	transition-duration: 0.4s;
+}
+.button_delete:hover
+{
+	background-color: #ff9999;
+	color: black;
+}
+.notice
+{
+	background-color: #99ff66;
+	font-size: 16px;
+	padding: 20px;
+}
+.alert
+{
+	background-color: #ff0000;
+	font-size: 16px;
+	padding: 20px;
+}

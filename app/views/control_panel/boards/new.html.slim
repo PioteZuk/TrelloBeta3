@@ -1,0 +1,9 @@
+= form_for [:control_panel, @board] do |f|
+	- if @board.errors.present?
+		ul - @board.errors.full_messages.each do |error|
+			tr = error.titleize
+	= f.label :title, "title"
+	= f.text_field :title
+	= f.submit "create"
+br
+= link_to 'back', control_panel_boards_path, class: "button"

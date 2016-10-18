@@ -1,0 +1,35 @@
+.upper
+	| Your boards
+div class="content"
+	div class="boards"
+		- @boards.each do |board|
+			div class = "custom-box board"
+				b =  board.id
+				br
+				= board.title
+				br
+				= board.created_at
+				br
+				= link_to control_panel_board_path(board), class: "board_button" do
+					i class="icon-doc"
+				end
+				= link_to edit_control_panel_board_path(board), class: "board_button" do
+					i class="icon-edit"
+				end
+				= link_to control_panel_board_path(board), method: :delete, data: {confirm: 'are you sure?'}, class: "board_button" do
+					i class="icon-trash-empty"
+				end
+		= link_to new_control_panel_board_path, class: "board_button" do
+			i class="icon-doc-new"
+		end
+	div class="boards_as_member"
+			- @boards_as_member.each do |board|
+				div class="custom-box board"
+					b = board.id
+					br
+					= board.title
+					br
+					= board.created_at
+					br
+					= link_to control_panel_board_path(board), class: "board_button" do
+						i class="icon-doc"

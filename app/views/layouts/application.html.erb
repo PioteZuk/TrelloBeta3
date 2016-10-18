@@ -7,12 +7,64 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
+<div class="header">
+TrelloBeta3
+</div>
 
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
+<% if notice.present? %>
+  <p class="notice"><%= notice %></p>
+<% end %>
+<div class="sidebar">
 
+<% if alert.present? %>
+  <p class="alert"><%= alert %></p>
+<% end %>
+
+  <%= link_to root_path, class: "sidebar_button" do %>
+    <div class="custom-box sidebar_tile">
+      <i class="icon-home"></i>
+      <br>
+      Home
+    </div>
+  <% end %>
+  <% if current_user.present? %>
+    <%= link_to control_panel_boards_path, class: "sidebar_button" do %>
+      <div class="custom-box sidebar_tile">
+        <i class="icon-folder-open"></i>
+        <br>
+        Boards
+      </div>
+    <% end %>
+    <%= link_to control_panel_user_invitations_path(current_user), class: "sidebar_button" do %>
+      <div class="custom-box sidebar_tile">
+        <i class="icon-users"></i>
+        <br>
+        Invitations
+      </div>
+    <% end %>
+
+    <%= link_to destroy_user_session_path, class: "sidebar_button", method: :delete do %>
+      <div class="custom-box sidebar_tile">
+        <i class="icon-off"></i>
+        <br>
+        Logout
+      </div>
+    <% end %>
+    <% else %>
+    <%= link_to user_session_path, class: "sidebar_button" do %>
+      <div class="custom-box sidebar_tile">
+        <i class="icon-off"></i>
+        <br>
+        Login
+      </div>
+    <% end %>
+  <% end %>
+
+</div>
 
 <%= yield %>
-
+<div class="footer"></div>
+</div>
 </body>
 </html>

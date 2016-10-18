@@ -1,0 +1,13 @@
+.upper
+	| Your Invitations
+div class="content"
+  - @invitations.where(accepted: false, active: true).each do |invitation|
+    div class = "custom-box board"
+      = invitation.board.title
+      br
+      = link_to control_panel_invitation_submit_path(invitation), method: :put, class: "board_button" do
+        i class="icon-ok"
+      end
+      = link_to control_panel_invitation_reject_path(invitation), method: :put, class: "board_button" do
+        i class="icon-cancel"
+      end

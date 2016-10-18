@@ -3,6 +3,10 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
+<!--   dadać email to email field
+ -->
+  <%= f.hidden_field :token, value: params[:token] %>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
